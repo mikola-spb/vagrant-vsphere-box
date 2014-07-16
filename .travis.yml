@@ -1,1 +1,2 @@
+install: mkdir target
 script: tar --directory simple -cvzf target/simple.box ./metadata.json
