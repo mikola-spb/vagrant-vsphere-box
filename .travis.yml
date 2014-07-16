@@ -1,2 +1,15 @@
-install: mkdir target
-script: tar --directory simple -cvzf target/simple.box ./metadata.json
+install: 
+  - mkdir target
+  
+script: 
+  - tar --directory simple -cvzf target/simple.box ./metadata.json
+
+deploy:
+  provider: releases
+  api-key: 
+    secure: "XD5XMWZAukkuC3UD4+JtGWuVcTx9IyuAZKuNZMw/drnY0zV+yq97GhbM8kwXkw3hrFTffixw8HE2S2ZaWikwsF+lYjqQa2QxY0eYDTrUEgKQk8feTSNxUo1Ucw8x98Rx/ibz8JnKBxRr4a3wB2MciGRIYkQhBSmpa8sdGdV/mVU="
+  file: "target/simple.box"
+  skip_cleanup: true
+  on:
+    tags: true
+    all_branches: true
